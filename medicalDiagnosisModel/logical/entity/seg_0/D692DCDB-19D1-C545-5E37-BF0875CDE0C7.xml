@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D692DCDB-19D1-C545-5E37-BF0875CDE0C7" name="Hospital_Therapy">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 15:12:16 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>0B931602-9F79-18C1-3FA6-EB4A7D89BB9A</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="dischargedDate" id="DE2447BF-E901-3E9A-88D1-58E7E39E4F15">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 15:49:38 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sector" id="14C45847-E598-56F3-9F70-944C13899D42">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 16:00:15 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="room" id="4D297247-CB7D-DD45-399F-064A0F784A22">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 16:01:03 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="bed" id="4EE34567-9D8E-69B2-622E-8D920D112D76">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 16:01:31 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

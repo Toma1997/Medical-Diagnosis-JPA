@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0B931602-9F79-18C1-3FA6-EB4A7D89BB9A" name="Therapy">
+<createdBy>Korisnik</createdBy>
+<createdTime>2020-04-02 21:36:40 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributeInherType>All atributes</attributeInherType>
+<discriminatorAttributeID>7D8AC269-4FE5-35AA-6362-42ACE6C6C2EA</discriminatorAttributeID>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="therapyID" id="BE6044C7-8871-9B42-8808-F2758FF2915C">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 14:59:23 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="diagnosisID" id="2FD04704-2123-E8E1-F3EF-96C94659B3AC">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 15:01:32 UTC</createdTime>
+<generatorID>E2BEF479-BBD9-37EA-BB7B-6EC28AC4B372</generatorID>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<referedAttribute>8D717C94-DBC6-8CC4-4A55-6F0CE74E477C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="therapyType" id="7D8AC269-4FE5-35AA-6362-42ACE6C6C2EA">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 15:21:46 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="medicamentID" id="93499144-FD9B-797E-5B5F-4C1C43FCE829">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 15:46:37 UTC</createdTime>
+<generatorID>18AA0DFB-194A-D03F-2707-D83FB99F8C65</generatorID>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<referedAttribute>BC1C10D3-07A0-BB1E-2EAF-3AF10A1B4919</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="therapyStartDate" id="FDAC06C3-9926-5512-1353-484F874D3529">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 15:56:36 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="therapyEndDate" id="0BD12044-B0A0-F076-B91A-FC5152025EC7">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 15:57:55 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1FDD6AC4-B167-7666-C953-4F1C304776A1" name="Therapy PK">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-25 14:59:41 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BE6044C7-8871-9B42-8808-F2758FF2915C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
