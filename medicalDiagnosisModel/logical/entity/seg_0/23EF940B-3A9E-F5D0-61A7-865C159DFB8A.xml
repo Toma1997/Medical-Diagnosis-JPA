@@ -15,6 +15,18 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="symptomDiseaseID" id="58A77CCE-9F47-2FF7-4DA1-9259CCD16A0D">
+<createdBy>Korisnik</createdBy>
+<createdTime>2020-04-03 22:50:43 UTC</createdTime>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="symptomID" id="26D64962-10EF-83B5-7344-8C7E3D75A375">
 <createdBy>Korisnik</createdBy>
 <createdTime>2020-04-03 22:47:56 UTC</createdTime>
@@ -43,18 +55,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="symptomDiseaseID" id="58A77CCE-9F47-2FF7-4DA1-9259CCD16A0D">
-<createdBy>Korisnik</createdBy>
-<createdTime>2020-04-03 22:50:43 UTC</createdTime>
-<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
-<engineerTo>
-<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="B0C3C01E-F983-081E-3D92-F2DFA45A93B9" name="SymptomsDiseases PK">
@@ -67,7 +67,6 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>58A77CCE-9F47-2FF7-4DA1-9259CCD16A0D</attributeRef>
-<attributeRef>28A46EDC-6903-4CC6-A3FF-DDA9C5D6BC2E</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

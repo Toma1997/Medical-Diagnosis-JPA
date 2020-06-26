@@ -29,20 +29,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="diagnosisID" id="2FD04704-2123-E8E1-F3EF-96C94659B3AC">
-<createdBy>38163</createdBy>
-<createdTime>2020-06-25 15:01:32 UTC</createdTime>
-<generatorID>E2BEF479-BBD9-37EA-BB7B-6EC28AC4B372</generatorID>
-<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
-<engineerTo>
-<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
-</engineerTo>
-<referedAttribute>8D717C94-DBC6-8CC4-4A55-6F0CE74E477C</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="therapyType" id="7D8AC269-4FE5-35AA-6362-42ACE6C6C2EA">
 <createdBy>38163</createdBy>
 <createdTime>2020-06-25 15:21:46 UTC</createdTime>
@@ -54,21 +40,22 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="medicamentID" id="93499144-FD9B-797E-5B5F-4C1C43FCE829">
+<Attribute name="therapyName" id="6608F585-C4F3-D5FD-6CF4-86DA0E7C3938">
 <createdBy>38163</createdBy>
-<createdTime>2020-06-25 15:46:37 UTC</createdTime>
-<generatorID>18AA0DFB-194A-D03F-2707-D83FB99F8C65</generatorID>
+<createdTime>2020-06-26 12:07:58 UTC</createdTime>
 <ownerDesignName>medicalDiagnosisModel</ownerDesignName>
 <engineerTo>
 <item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
 </engineerTo>
-<referedAttribute>BC1C10D3-07A0-BB1E-2EAF-3AF10A1B4919</referedAttribute>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="therapyStartDate" id="FDAC06C3-9926-5512-1353-484F874D3529">
 <createdBy>38163</createdBy>
@@ -94,6 +81,20 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="diagnosisID" id="D7530E94-7372-6E6B-C9DF-76987BB9E85A">
+<createdBy>38163</createdBy>
+<createdTime>2020-06-26 09:09:47 UTC</createdTime>
+<generatorID>F2A0520C-1C00-E33C-3526-1DA8704F695F</generatorID>
+<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
+<engineerTo>
+<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
+</engineerTo>
+<referedAttribute>8D717C94-DBC6-8CC4-4A55-6F0CE74E477C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

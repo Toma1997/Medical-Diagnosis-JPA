@@ -14,8 +14,6 @@
         <class>model.Medicament</class>
         <class>model.Diagnose</class>
         <class>model.symptomDisease</class>
-        <class>model.therapyMedicament</class>
-        <class>model.Therapy</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
