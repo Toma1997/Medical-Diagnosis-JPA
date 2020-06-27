@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100410
 File Encoding         : 65001
 
-Date: 2020-06-26 14:35:28
+Date: 2020-06-27 23:04:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -72,18 +72,22 @@ CREATE TABLE `medicaments` (
 DROP TABLE IF EXISTS `patients`;
 CREATE TABLE `patients` (
   `patientID` int(11) NOT NULL AUTO_INCREMENT,
-  `patientName` char(20) NOT NULL,
-  `patientSurname` char(30) NOT NULL,
+  `patientName` varchar(20) NOT NULL,
+  `patientSurname` varchar(30) NOT NULL,
   `birthDate` date DEFAULT NULL,
-  `gender` char(1) NOT NULL,
+  `gender` varchar(1) NOT NULL,
   `weight` double(5,2) NOT NULL,
   `height` double(5,2) NOT NULL,
   PRIMARY KEY (`patientID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of patients
 -- ----------------------------
+INSERT INTO `patients` VALUES ('1', 'Toma', 'Joksimovic', '1997-09-13', 'M', '90.00', '186.00');
+INSERT INTO `patients` VALUES ('2', 'Mirko', 'Mirkovic', '1995-10-23', 'M', '84.00', '187.00');
+INSERT INTO `patients` VALUES ('3', 'Ana', 'Dinkic', '1999-03-12', 'F', '69.00', '174.00');
+INSERT INTO `patients` VALUES ('4', 'Marija', 'Stankovic', '1983-08-30', 'F', '71.00', '180.00');
 
 -- ----------------------------
 -- Table structure for symptoms
@@ -94,11 +98,15 @@ CREATE TABLE `symptoms` (
   `symptomName` char(255) NOT NULL,
   `cause` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`symptomID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of symptoms
 -- ----------------------------
+INSERT INTO `symptoms` VALUES ('1', 'Kijavica', 'Oslabljen imunitet');
+INSERT INTO `symptoms` VALUES ('2', 'Bol u glavi', 'Preveliko izlaganje suncu');
+INSERT INTO `symptoms` VALUES ('3', 'Bol u grlu', 'Konzumacija hladne hrane i pica');
+INSERT INTO `symptoms` VALUES ('4', 'Groznica', 'Virusna infekcija, trovanje hranom');
 
 -- ----------------------------
 -- Table structure for symptoms_diseases

@@ -2,6 +2,8 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "diseases")
@@ -13,6 +15,9 @@ public class Disease  implements Serializable {
     @Column(name = "diseaseID")
     private int diseaseID;
     private String diseaseName, diseaseType;
+
+    @OneToMany(mappedBy = "disease")
+    private Set<SymptomDisease> symptomsDiseases = new HashSet<SymptomDisease>();
 
     public Disease() {
     }
@@ -44,5 +49,13 @@ public class Disease  implements Serializable {
 
     public void setDiseaseType(String diseaseType) {
         this.diseaseType = diseaseType;
+    }
+
+    public Set<SymptomDisease> getSymptomsDiseases() {
+        return symptomsDiseases;
+    }
+
+    public void setSymptomsDiseases(Set<SymptomDisease> symptomsDiseases) {
+        this.symptomsDiseases = symptomsDiseases;
     }
 }

@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "therapies")
@@ -17,23 +19,16 @@ public class Therapy implements Serializable {
     private String therapyType, therapyName, pharmacyAddr, sector;
     private Date therapyStartDate, therapyEndDate, dischargedDate;
     private Timestamp examinationDate;
-    private int diagnosisID, room, bed;
+    private int room, bed;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "diagnosisID")
+    private Diagnose diagnose;
+
+    @OneToMany(mappedBy = "therapy")
+    private Set<TherapyMedicament> therapyMedicaments = new HashSet<TherapyMedicament>();
 
     public Therapy() {
-    }
-    public Therapy(int therapyID, String therapyType, String therapyName, String pharmacyAddr, String sector, Date therapyStartDate, Date therapyEndDate, Date dischargedDate, Timestamp examinationDate, int diagnosisID, int room, int bed) {
-        this.therapyID = therapyID;
-        this.therapyType = therapyType;
-        this.therapyName = therapyName;
-        this.pharmacyAddr = pharmacyAddr;
-        this.sector = sector;
-        this.therapyStartDate = therapyStartDate;
-        this.therapyEndDate = therapyEndDate;
-        this.dischargedDate = dischargedDate;
-        this.examinationDate = examinationDate;
-        this.diagnosisID = diagnosisID;
-        this.room = room;
-        this.bed = bed;
     }
 
     public int getTherapyID() {
@@ -108,14 +103,6 @@ public class Therapy implements Serializable {
         this.examinationDate = examinationDate;
     }
 
-    public int getDiagnosisID() {
-        return diagnosisID;
-    }
-
-    public void setDiagnosisID(int diagnosisID) {
-        this.diagnosisID = diagnosisID;
-    }
-
     public int getRoom() {
         return room;
     }
@@ -130,5 +117,21 @@ public class Therapy implements Serializable {
 
     public void setBed(int bed) {
         this.bed = bed;
+    }
+
+    public Diagnose getDiagnose() {
+        return diagnose;
+    }
+
+    public void setDiagnose(Diagnose diagnose) {
+        this.diagnose = diagnose;
+    }
+
+    public Set<TherapyMedicament> getTherapyMedicaments() {
+        return therapyMedicaments;
+    }
+
+    public void setTherapyMedicaments(Set<TherapyMedicament> therapyMedicaments) {
+        this.therapyMedicaments = therapyMedicaments;
     }
 }

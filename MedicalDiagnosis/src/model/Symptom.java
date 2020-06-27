@@ -2,6 +2,8 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "symptoms")
@@ -13,6 +15,9 @@ public class Symptom implements Serializable {
     @Column(name = "symptomID")
     private int symptomID;
     private String symptomName, cause;
+
+    @OneToMany(mappedBy = "symptom")
+    private Set<SymptomDisease> symptomsDiseases = new HashSet<SymptomDisease>();
 
     public Symptom() {
     }
@@ -44,5 +49,22 @@ public class Symptom implements Serializable {
 
     public void setCause(String cause) {
         this.cause = cause;
+    }
+
+    public Set<SymptomDisease> getSymptomsDiseases() {
+        return symptomsDiseases;
+    }
+
+    public void setSymptomsDiseases(Set<SymptomDisease> symptomsDiseases) {
+        this.symptomsDiseases = symptomsDiseases;
+    }
+
+    @Override
+    public String toString() {
+        return "Symptom{" +
+                "symptomID=" + symptomID +
+                ", symptomName='" + symptomName + '\'' +
+                ", cause='" + cause + '\'' +
+                '}';
     }
 }

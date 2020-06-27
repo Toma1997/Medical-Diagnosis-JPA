@@ -2,6 +2,8 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "medicaments")
@@ -13,6 +15,9 @@ public class Medicament implements Serializable {
     @Column(name = "medicamentID")
     private int medicamentID;
     private String medicamentName, medicamentDescription, dose, restriction;
+
+    @OneToMany(mappedBy = "medicament")
+    private Set<TherapyMedicament> therapyMedicaments = new HashSet<TherapyMedicament>();
 
     public Medicament() {
     }
@@ -62,5 +67,13 @@ public class Medicament implements Serializable {
 
     public void setRestriction(String restriction) {
         this.restriction = restriction;
+    }
+
+    public Set<TherapyMedicament> getTherapyMedicaments() {
+        return therapyMedicaments;
+    }
+
+    public void setTherapyMedicaments(Set<TherapyMedicament> therapyMedicaments) {
+        this.therapyMedicaments = therapyMedicaments;
     }
 }

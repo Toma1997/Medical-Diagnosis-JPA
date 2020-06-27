@@ -3,6 +3,8 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "patients")
@@ -17,6 +19,9 @@ public class Patient implements Serializable {
     private Date birthDate;
     private char gender;
     private double weight, height;
+
+    @OneToMany(mappedBy = "patient")
+    private Set<Diagnose> diagnosis = new HashSet<Diagnose>();
 
     public Patient() {
     }
@@ -84,5 +89,26 @@ public class Patient implements Serializable {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public Set<Diagnose> getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(Set<Diagnose> diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "patientID=" + patientID +
+                ", patientName='" + patientName + '\'' +
+                ", patientSurname='" + patientSurname + '\'' +
+                ", birthDate=" + birthDate +
+                ", gender=" + gender +
+                ", weight=" + weight +
+                ", height=" + height +
+                '}';
     }
 }
