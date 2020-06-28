@@ -2,12 +2,17 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "patients")
+@NamedQueries({
+    @NamedQuery(query = "SELECT p FROM Patient AS p WHERE p.birthDate <= :date", name="Patients older than given date"),
+    @NamedQuery(query = "SELECT p FROM Patient AS p WHERE p.weight < (SELECT AVG(p.weight) FROM Patient as p)", name="Patients with lower weight than AVG"),
+    @NamedQuery(query = "SELECT p FROM Patient AS p WHERE p.weight > :weight AND p.height < :height ORDER BY p.birthDate DESC", name="Sorted patients by birthDate with weight gt given and height lt given")
+})
 public class Patient implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -24,15 +29,6 @@ public class Patient implements Serializable {
     private Set<Diagnose> diagnosis = new HashSet<Diagnose>();
 
     public Patient() {
-    }
-    public Patient(int patientID, String patientName, String patientSurname, Date birthDate, char gender, double weight, double height) {
-        this.patientID = patientID;
-        this.patientName = patientName;
-        this.patientSurname = patientSurname;
-        this.birthDate = birthDate;
-        this.gender = gender;
-        this.weight = weight;
-        this.height = height;
     }
 
     public int getPatientID() {

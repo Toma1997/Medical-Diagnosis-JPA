@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Date;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +17,7 @@ public class Therapy implements Serializable {
     @Column(name = "therapyID")
     private int therapyID;
     private String therapyType, therapyName, pharmacyAddr, sector;
-    private Date therapyStartDate, therapyEndDate, dischargedDate;
+    private Date therapyStartDate, therapyEndDate;
     private Timestamp examinationDate;
     private int room, bed;
 
@@ -60,7 +60,8 @@ public class Therapy implements Serializable {
     }
 
     public void setPharmacyAddr(String pharmacyAddr) {
-        this.pharmacyAddr = pharmacyAddr;
+        if(this.therapyType == "Home")
+            this.pharmacyAddr = pharmacyAddr;
     }
 
     public String getSector() {
@@ -68,7 +69,8 @@ public class Therapy implements Serializable {
     }
 
     public void setSector(String sector) {
-        this.sector = sector;
+        if(this.therapyType == "Hospital")
+            this.sector = sector;
     }
 
     public Date getTherapyStartDate() {
@@ -87,20 +89,13 @@ public class Therapy implements Serializable {
         this.therapyEndDate = therapyEndDate;
     }
 
-    public Date getDischargedDate() {
-        return dischargedDate;
-    }
-
-    public void setDischargedDate(Date dischargedDate) {
-        this.dischargedDate = dischargedDate;
-    }
-
     public Timestamp getExaminationDate() {
         return examinationDate;
     }
 
     public void setExaminationDate(Timestamp examinationDate) {
-        this.examinationDate = examinationDate;
+        if(this.therapyType == "Home")
+            this.examinationDate = examinationDate;
     }
 
     public int getRoom() {
@@ -108,7 +103,8 @@ public class Therapy implements Serializable {
     }
 
     public void setRoom(int room) {
-        this.room = room;
+        if(this.therapyType == "Hospital")
+            this.room = room;
     }
 
     public int getBed() {
@@ -116,7 +112,8 @@ public class Therapy implements Serializable {
     }
 
     public void setBed(int bed) {
-        this.bed = bed;
+        if(this.therapyType == "Hospital")
+            this.bed = bed;
     }
 
     public Diagnose getDiagnose() {
@@ -133,5 +130,27 @@ public class Therapy implements Serializable {
 
     public void setTherapyMedicaments(Set<TherapyMedicament> therapyMedicaments) {
         this.therapyMedicaments = therapyMedicaments;
+    }
+
+    @Override
+    public String toString() {
+        String str =  "Therapy{" +
+                "therapyID=" + therapyID +
+                ", therapyType='" + therapyType + '\'' +
+                ", therapyName='" + therapyName + '\'' +
+                ", therapyStartDate=" + therapyStartDate +
+                ", therapyEndDate=" + therapyEndDate +
+                ", diagnosisID=" + diagnose.getDiagnosisID();
+        if(this.therapyType.equals("Home")){
+            str += ", pharmacyAddr='" + pharmacyAddr + '\'' +
+                    ", examinationDate=" + examinationDate +
+                    "}";
+        } else {
+            str += ", sector='" + sector + '\'' +
+                    ", room=" + room +
+                    ", bed=" + bed +
+                    '}';
+        }
+        return str;
     }
 }

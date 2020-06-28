@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100410
 File Encoding         : 65001
 
-Date: 2020-06-26 14:35:28
+Date: 2020-06-28 21:30:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,11 +28,15 @@ CREATE TABLE `diagnosis` (
   KEY `fk_patient` (`patientID`),
   CONSTRAINT `fk_patient` FOREIGN KEY (`patientID`) REFERENCES `patients` (`patientID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_symptomDisease` FOREIGN KEY (`symptomDiseaseID`) REFERENCES `symptoms_diseases` (`symptomDiseaseID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of diagnosis
 -- ----------------------------
+INSERT INTO `diagnosis` VALUES ('1', '1', '1');
+INSERT INTO `diagnosis` VALUES ('2', '3', '2');
+INSERT INTO `diagnosis` VALUES ('3', '4', '5');
+INSERT INTO `diagnosis` VALUES ('4', '2', '3');
 
 -- ----------------------------
 -- Table structure for diseases
@@ -43,11 +47,14 @@ CREATE TABLE `diseases` (
   `diseaseName` varchar(30) NOT NULL,
   `diseaseType` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`diseaseID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of diseases
 -- ----------------------------
+INSERT INTO `diseases` VALUES ('1', 'Prehlada', 'Gripno');
+INSERT INTO `diseases` VALUES ('2', 'Upala pluca', 'Plucno');
+INSERT INTO `diseases` VALUES ('3', 'Stomacni virus', 'Stomacno');
 
 -- ----------------------------
 -- Table structure for medicaments
@@ -60,11 +67,15 @@ CREATE TABLE `medicaments` (
   `dose` varchar(20) NOT NULL,
   `restriction` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`medicamentID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of medicaments
 -- ----------------------------
+INSERT INTO `medicaments` VALUES ('1', 'Kafetin', 'Deluje protiv bola u glavi', '1*250mg na dan', 'Ne mesati sa alkoholom');
+INSERT INTO `medicaments` VALUES ('2', 'Probiotik', 'Deluje protiv bola u stomaku', '3*kapsula na dan', 'Ne konzumirati na prazan stomak');
+INSERT INTO `medicaments` VALUES ('3', 'Strepsils', 'Ublazava bol u grlu', '2 tablete na dan', 'Ne kozumirati na prazan stomak');
+INSERT INTO `medicaments` VALUES ('4', 'Caj od zalfije', 'Za upalu grla, groznicu, stomacne tegobe', '4-5 solji na dan', 'Ne konzumirati pred spavanje');
 
 -- ----------------------------
 -- Table structure for patients
@@ -72,18 +83,22 @@ CREATE TABLE `medicaments` (
 DROP TABLE IF EXISTS `patients`;
 CREATE TABLE `patients` (
   `patientID` int(11) NOT NULL AUTO_INCREMENT,
-  `patientName` char(20) NOT NULL,
-  `patientSurname` char(30) NOT NULL,
+  `patientName` varchar(20) NOT NULL,
+  `patientSurname` varchar(30) NOT NULL,
   `birthDate` date DEFAULT NULL,
-  `gender` char(1) NOT NULL,
+  `gender` varchar(1) NOT NULL,
   `weight` double(5,2) NOT NULL,
   `height` double(5,2) NOT NULL,
   PRIMARY KEY (`patientID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of patients
 -- ----------------------------
+INSERT INTO `patients` VALUES ('1', 'Toma', 'Joksimovic', '1997-09-13', 'M', '90.00', '186.00');
+INSERT INTO `patients` VALUES ('2', 'Mirko', 'Mirkovic', '1995-10-23', 'M', '84.00', '187.00');
+INSERT INTO `patients` VALUES ('3', 'Ana', 'Dinkic', '1999-03-12', 'F', '69.00', '174.00');
+INSERT INTO `patients` VALUES ('4', 'Marija', 'Stankovic', '1983-08-30', 'F', '71.00', '180.00');
 
 -- ----------------------------
 -- Table structure for symptoms
@@ -94,11 +109,15 @@ CREATE TABLE `symptoms` (
   `symptomName` char(255) NOT NULL,
   `cause` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`symptomID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of symptoms
 -- ----------------------------
+INSERT INTO `symptoms` VALUES ('1', 'Kijavica', 'Oslabljen imunitet');
+INSERT INTO `symptoms` VALUES ('2', 'Bol u glavi', 'Preveliko izlaganje suncu');
+INSERT INTO `symptoms` VALUES ('3', 'Bol u grlu', 'Konzumacija hladne hrane i pica');
+INSERT INTO `symptoms` VALUES ('4', 'Groznica', 'Virusna infekcija, trovanje hranom');
 
 -- ----------------------------
 -- Table structure for symptoms_diseases
@@ -113,11 +132,16 @@ CREATE TABLE `symptoms_diseases` (
   KEY `fk_disease` (`diseaseID`),
   CONSTRAINT `fk_disease` FOREIGN KEY (`diseaseID`) REFERENCES `diseases` (`diseaseID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_symptom` FOREIGN KEY (`symptomID`) REFERENCES `symptoms` (`symptomID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of symptoms_diseases
 -- ----------------------------
+INSERT INTO `symptoms_diseases` VALUES ('1', '1', '1');
+INSERT INTO `symptoms_diseases` VALUES ('2', '2', '1');
+INSERT INTO `symptoms_diseases` VALUES ('3', '3', '1');
+INSERT INTO `symptoms_diseases` VALUES ('4', '4', '2');
+INSERT INTO `symptoms_diseases` VALUES ('5', '4', '1');
 
 -- ----------------------------
 -- Table structure for therapies
@@ -132,18 +156,18 @@ CREATE TABLE `therapies` (
   `diagnosisID` int(11) NOT NULL,
   `pharmacyAddr` varchar(50) DEFAULT NULL,
   `examinationDate` datetime DEFAULT NULL ON UPDATE current_timestamp(),
-  `dischargedDate` date DEFAULT NULL,
   `sector` varchar(20) DEFAULT NULL,
   `room` int(5) DEFAULT NULL,
   `bed` int(2) DEFAULT NULL,
   PRIMARY KEY (`therapyID`),
   KEY `fk_diagnosis` (`diagnosisID`),
   CONSTRAINT `fk_diagnosis` FOREIGN KEY (`diagnosisID`) REFERENCES `diagnosis` (`diagnosisID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of therapies
 -- ----------------------------
+INSERT INTO `therapies` VALUES ('1', 'Home', 'Lecenje prehlade', '2020-06-11', '2020-06-26', '1', 'Masarikova 10', '2020-06-24 15:57:31', '', null, null);
 
 -- ----------------------------
 -- Table structure for therapies_medicaments
@@ -158,8 +182,9 @@ CREATE TABLE `therapies_medicaments` (
   KEY `fk_medicament` (`medicamentID`),
   CONSTRAINT `fk_medicament` FOREIGN KEY (`medicamentID`) REFERENCES `medicaments` (`medicamentID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_therapy` FOREIGN KEY (`therapyID`) REFERENCES `therapies` (`therapyID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of therapies_medicaments
 -- ----------------------------
+INSERT INTO `therapies_medicaments` VALUES ('1', '1', '1');

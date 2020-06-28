@@ -16,19 +16,6 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="dischargedDate" id="DE2447BF-E901-3E9A-88D1-58E7E39E4F15">
-<createdBy>38163</createdBy>
-<createdTime>2020-06-25 15:49:38 UTC</createdTime>
-<ownerDesignName>medicalDiagnosisModel</ownerDesignName>
-<engineerTo>
-<item key="C278924D-F352-AFBD-D1F9-0B7603E73E0D" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="sector" id="14C45847-E598-56F3-9F70-944C13899D42">
 <createdBy>38163</createdBy>
 <createdTime>2020-06-25 16:00:15 UTC</createdTime>

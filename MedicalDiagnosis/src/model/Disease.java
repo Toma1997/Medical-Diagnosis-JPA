@@ -7,6 +7,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "diseases")
+@NamedQuery(query = "SELECT d FROM Disease d WHERE d.diseaseType = :type", name = "Find disease by type")
 public class Disease  implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -20,11 +21,6 @@ public class Disease  implements Serializable {
     private Set<SymptomDisease> symptomsDiseases = new HashSet<SymptomDisease>();
 
     public Disease() {
-    }
-    public Disease(int diseaseID, String diseaseName, String diseaseType) {
-        this.diseaseID = diseaseID;
-        this.diseaseName = diseaseName;
-        this.diseaseType = diseaseType;
     }
 
     public int getDiseaseID() {
@@ -57,5 +53,14 @@ public class Disease  implements Serializable {
 
     public void setSymptomsDiseases(Set<SymptomDisease> symptomsDiseases) {
         this.symptomsDiseases = symptomsDiseases;
+    }
+
+    @Override
+    public String toString() {
+        return "Disease{" +
+                "diseaseID=" + diseaseID +
+                ", diseaseName='" + diseaseName + '\'' +
+                ", diseaseType='" + diseaseType + '\'' +
+                '}';
     }
 }

@@ -21,11 +21,6 @@ public class Symptom implements Serializable {
 
     public Symptom() {
     }
-    public Symptom(int symptomID, String symptomName, String cause) {
-        this.symptomID = symptomID;
-        this.symptomName = symptomName;
-        this.cause = cause;
-    }
 
     public int getSymptomID() {
         return symptomID;

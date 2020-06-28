@@ -21,13 +21,6 @@ public class Medicament implements Serializable {
 
     public Medicament() {
     }
-    public Medicament(int medicamentID, String medicamentName, String medicamentDescription, String dose, String restriction) {
-        this.medicamentID = medicamentID;
-        this.medicamentName = medicamentName;
-        this.medicamentDescription = medicamentDescription;
-        this.dose = dose;
-        this.restriction = restriction;
-    }
 
     public int getMedicamentID() {
         return medicamentID;
@@ -75,5 +68,16 @@ public class Medicament implements Serializable {
 
     public void setTherapyMedicaments(Set<TherapyMedicament> therapyMedicaments) {
         this.therapyMedicaments = therapyMedicaments;
+    }
+
+    @Override
+    public String toString() {
+        return "Medicament{" +
+                "medicamentID=" + medicamentID +
+                ", medicamentName='" + medicamentName + '\'' +
+                ", medicamentDescription='" + medicamentDescription + '\'' +
+                ", dose='" + dose + '\'' +
+                ", restriction='" + restriction + '\'' +
+                '}';
     }
 }
