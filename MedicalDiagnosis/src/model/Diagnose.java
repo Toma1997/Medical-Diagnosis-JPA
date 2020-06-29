@@ -65,7 +65,7 @@ public class Diagnose implements Serializable {
     public String toString() {
         return "Diagnose{" +
                 "diagnosisID=" + diagnosisID +
-                ", patient=" + patient.getPatientID() +
+                ", patientID=" + patient.getPatientID() +
                 ", symptomDisease=" + symptomDisease.getSymptomDiseaseID() +
                 '}';
     }

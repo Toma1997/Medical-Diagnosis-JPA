@@ -16,6 +16,8 @@
         <class>model.SymptomDisease</class>
         <class>model.TherapyMedicament</class>
         <class>model.Therapy</class>
+        <class>model.HomeTherapy</class>
+        <class>model.HospitalTherapy</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

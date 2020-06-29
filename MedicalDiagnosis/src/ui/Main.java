@@ -2,9 +2,7 @@ package ui;
 import model.*;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.sql.Date;
 import java.util.List;
 
@@ -12,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("medical_diagnosis");
         EntityManager em = emf.createEntityManager();
-        //EntityTransaction tx = em.getTransaction();
-        //tx.begin();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
 
         // Plain Query
         System.out.println("\nBelow is the result of Plain query which retrieves all patients:");
@@ -94,8 +92,20 @@ public class Main {
         }
 
         // Complex Query with joins, etc.
+        System.out.println("\nBelow are the results of the complex queries with joins:\n");
+        TypedQuery<Patient> complexQuery1 = em.createQuery("SELECT DISTINCT p FROM Diagnose d INNER JOIN d.patient p WHERE d.patient.weight < 80.0 ORDER BY d.patient.height DESC",
+                Patient.class);
+        List<Patient> patientsJoinDiagnoses = complexQuery1.getResultList();
+        for(Patient patient: patientsJoinDiagnoses){
+            System.out.println(patient.toString());
+            System.out.println("Patients diagnoses:");
+            for(Diagnose diagnose: patient.getDiagnosis()){
+                System.out.println(diagnose.toString());
+            }
+            System.out.println();
+        }
 
-        //tx.commit();
+        tx.commit();
         em.close();
     }
 }
